@@ -1,0 +1,52 @@
+html {
+  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background-size: cover;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.clock {
+  border: 20px solid white;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1) inset 0 0 0 3px #efefef inset 0 0 10px
+    black 0 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock-face {
+  /* border: 2px solid red; */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-3px);
+  /* account for the height of the clock hands */
+}
+
+.hand {
+  /* border: 2px solid yellow; */
+  width: 50%;
+  height: 6px;
+  background: black;
+  border-radius: 10px;
+  position: absolute; /* This will overlap the all hands */
+  top: 50%;
+  transform-origin: 100%; /* this will rotate the hands from origin of hands*/
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  /* transition: all 1s; */
+}

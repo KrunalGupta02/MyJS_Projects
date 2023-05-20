@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modals using JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="modal hidden">
+
+        <div class="flex">
+            <img src="img.jpg" alt="user" width="50px" height="50px">
+            <button class="btn-close">X</button>
+        </div>
+
+        <div>
+            <h3>Stay in touch</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, blanditiis!</p>
+        </div>
+
+        <input type="email" id="email" placeholder="krunalgupta@gmail.com">
+        <button class="btn">Submit</button>
+    </section>
+
+    <div class="overlay hidden"></div>
+
+    <button class="btn btn-open">Open Modal</button>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+body,
+html {
+  /* border: 2px solid red; */
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #2c5a57;
+  background-image: linear-gradient(#101922, #275451);
+  background-size: 100%;
+  text-align: center;
+  line-height: 1.45;
+}
+
+p {
+  text-transform: uppercase;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin: 3em 0 1em;
+
+  opacity: 0; /* This will hide the p element initially*/
+  animation: fadedown 0.5s ease-in-out;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+h1 {
+  color: yellow;
+  text-transform: uppercase;
+  font-size: 50px;
+  text-shadow: 0 3px red;
+  margin: 0;
+
+  transform: scale(0); /* This will hide the h1 element initially */
+  animation: zoomin 1s ease-in-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+h1 + p {
+  /* border: 2px solid blue; */
+  font-size: 20px;
+  letter-spacing: 2px;
+  max-width: 50%;
+  margin: auto;
+  padding-top: 5rem;
+
+  animation-delay: 3.5s;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  95% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadedown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  90% {
+    transform: translate3d(0, 1px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+h1 span {
+  display: inline-block;
+}
