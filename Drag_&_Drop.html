@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Drag and Drop</title>
+
+    <style>
+        .fill {
+            background-image: url('https://picsum.photos/id/450/200/300');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 150px;
+            width: 150px;
+            cursor: pointer;
+            position: relative;
+            top: 5px;
+            left: 5px;
+        }
+
+        .empty {
+            border: 2px solid #1D85AF;
+            display: inline-block;
+            height: 160px;
+            width: 160px;
+            background: white;
+            margin: 10px;
+        }
+
+        .hold {
+            border: 5px solid #1D85AF;
+        }
+
+        .hovered {
+            background: #1D85AF;
+            border-style: dashed;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="empty">
+        <div class="fill" draggable="true">
+        </div>
+    </div>
+
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+
+    <ul>
+        <li>The <strong>dragstart</strong> event is fired when the user starts dragging an element or text selection.
+        </li>
+        <li>The <strong>dragend</strong> event is fired when a drag operation is being ended (by releasing a mouse
+            button or hitting the
+            escape key).</li>
+        <li>The <strong>dragover</strong> event is fired when an element or text selection is being dragged over a valid
+            drop target
+            (every few
+            hundred milliseconds)</li>
+        <li>The <strong>dragenter</strong> event is fired when a dragged element or text selection enters a valid drop
+            target.
+        </li>
+        <li>The <strong>dragleave</strong> event is fired when a dragged element or text selection leaves a valid drop
+            target.
+        </li>
+        <li>The <strong>drop</strong> event is fired when an element or text selection is dropped on a valid drop
+            target. To ensure that
+            the drop
+            event always fires as expected, you should always include a preventDefault() call in the part of your code
+            which handles
+            the dragover event.
+        </li>
+
+    </ul>
+</body>
+
+<script>
+    const fill = document.querySelector('.fill');
+    const empties = document.querySelectorAll('.empty');
+
+    // Fill Listeners
+    fill.addEventListener('dragstart', dragStart);
+    fill.addEventListener('dragend', dragEnd);
+
+    // Loop through empty boxes and add listeners
+    for (const empty of empties) {
+        empty.addEventListener('dragover', dragOver);
+        empty.addEventListener('dragenter', dragEnter);
+        empty.addEventListener('dragleave', dragLeave);
+        empty.addEventListener('drop', dragDrop);
+    }
+
+    // Drag Function
+
+    function dragStart() {
+        this.className += ' hold';
+        setTimeout(() => (this.className = 'invisible', 0))
+    }
+
+    function dragEnd() {
+        this.className = 'fill';
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function dragEnter(e) {
+        e.preventDefault();
+        this.className += ' hovered';
+    }
+
+    function dragLeave() {
+        this.className = "empty";
+    }
+
+    function dragDrop() {
+        this.className = 'empty';
+        this.append(fill);
+    }
+
+
+</script>
+
+</html>
